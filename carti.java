@@ -77,10 +77,18 @@ class Carte
 			this._nHealth = 7 + (int)(Math.random() * ((10 - 7) + 1));
 		}
 
-		if(this._nHealth<5 && this._nAttack <5)
+		if(this._nHealth < 5 && this._nAttack < 5)
 		{
-			
+			this._nMana	= (this._nHealth + this._nAttack + 7) / 3;  
 		}
+		else if(this._nHealth > 5 && this._nAttack < 5)
+		{
+			this._nMana = (this._nHealth + this._nAttack + 5) / 6;
+		}
+		else if(this._nHealth < 5 && this._nAttack > 5)
+		{
+			this._nMana = (this._nHealth + this.j)
+		} 
 
 	}
 
