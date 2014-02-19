@@ -41,6 +41,11 @@ class Carte
 		Random rand = new Random()
 		int max = 1;
 		int min = 0;
+
+		/**
+		* Generating a roandom number between 0 and 1 in order
+		* to generate health and power.
+		*/
 		float fitness = rand.nextFloat() * (max - min) + min;
 		if (fitness>0 && fitness<=0.25)
 		{
@@ -59,6 +64,9 @@ class Carte
 			this._nHealth = 7 + (int)(Math.random() * ((10 - 7) + 1));
 		}
 
+		/**
+		* This sets the card's power based on the random number generated before
+		*/
 		float power = rand.nextFloat() * (max -min) + min;
 		if (power>0 && power<=0.25)
 		{
@@ -77,6 +85,9 @@ class Carte
 			this._nHealth = 7 + (int)(Math.random() * ((10 - 7) + 1));
 		}
 
+		/*
+		* This sets up the card's mana based on it's health and power.
+		*/
 		if(this._nHealth < 5 && this._nAttack < 5)
 		{
 			this._nMana	= (this._nHealth + this._nAttack + 7) / 3;  
@@ -87,11 +98,13 @@ class Carte
 		}
 		else if(this._nHealth < 5 && this._nAttack > 5)
 		{
-			this._nMana = (this._nHealth + this.j)
+			this._nMana = (this._nHealth + this._nAttack + 7) / 4;
 		} 
-
+		else if(this._nHealth >5 && this._nAttack > 5)
+		{
+			this._nMana = (this._nHealth + this._nAttack + 2) / 3;
+		}
 	}
-
 }
 
 class Justitiar extends Carte
@@ -136,7 +149,7 @@ class Deck
 
 		for(int i=0; i<nDeckLimit; i++)
 		{
-
+			
 		}
 	}
 }
