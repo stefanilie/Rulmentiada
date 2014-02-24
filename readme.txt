@@ -1,4 +1,3 @@
-
 3 tipuri de carti
 -justitiaru care e de mai multe feluri
 	=>militian care iti cere mai multa mana ca e șpăgar 
@@ -8,6 +7,9 @@
 	=>soarece radioactiv
 	=>cocalar in trening
 	=>mafiot lautar
+	=>diva de mall
+	=>pitipoanca de cartier
+	=>baba de ratb
 -cartea de moloz - aplica magia molozului gri si trist asupra 
 				 - jucatorulor de camp
 Scopul de joc este de a ii distruge/fura toti rulmentii jucatorului
