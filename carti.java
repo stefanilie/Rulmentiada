@@ -2,9 +2,9 @@ import java.util.*
 
 class Carte
 {
-	private int _nAttack;
-	private int _nHealth;
-	private int _nMana;
+	protected int _nAttack;
+	protected int _nHealth;
+	protected int _nMana;
 
 	public getAttack()
 	{
@@ -109,9 +109,40 @@ class Carte
 
 class Justitiar extends Carte
 {
-	boolean bIsMilitian;
-	boolean bIsMilitar;
+	protected boolean _bIsMilitian;
+	protected boolean _bIsMilitar;
 
+	public setIsMilitian(boolean bValue)
+	{
+		this._bIsMilitian = bValue;
+	}
+
+	public setIsMilitar(boolean bValue)
+	{
+		this._bIsMilitar = bValue;
+	}
+
+	public getIsMilitar()
+	{
+		return this._bIsMilitar;
+	}
+
+	public getIsMilitian()
+	{
+		return this._bIsMilitian;
+	}
+
+	public Justitiar(boolean bType)
+	{
+		if(this.getIsMilitar)
+		{
+			//trebuie adaugata functionalitate sa blocheze atacul la rulmenti
+		}
+		else if(this.getIsMilitian)
+		{
+			//functionalitate adaugare manax`x
+		}
+	}
 }
 
 class JucatorCamp extends Carte
@@ -156,5 +187,50 @@ class Deck
 
 class Player
 {
+	ArrayList<Integer> listRulmenti;
+	Deck objDeck;
 
+	public Player()
+	{
+		objDeck = new Deck();
+		listRulmenti = new List<Integer>();
+	}
+
+	/**
+	* This function is the marks the attack sustained by the rulments.
+	* If bIsProtected has true value, that means that the rulments are protected by a Militar Card.
+	*/
+	public getsAttacked(boolean bIsProtected, Carte objAttacker)
+	{
+		if(bIsProtected)
+		{
+			//pop-up message that doesn't let you attack the player
+		}
+		else
+		{
+			Collections.sort(listRulmenti);
+			/* 
+			* Aici trebuie sa fac functionalitatea de damage.
+			* In cazul in care atacul e mai mare decat valoarea unui rulment, 
+			* trebuie sa ia cat mai are rulmentul ala, si sa treaca la urmatorul,
+			* daca un rulment urmator mai exista. In caz contrar, jocul se incheie.
+			*/
+			if(listRulmenti[0] - objAttacker.getAttack() < 0)
+			{
+				//il scade din primu, iar valoarea reziduu negativa (ex: -3)
+				listRulmenti[0] = listRulmenti[0] - objAttacker.getAttack();
+				//va fi adunata la urmatorul rulment, ca sa ii scada lui, atacul fiind acum finalizat
+				listRulmenti[1] = listRulmenti[1] + listRulmenti[0];
+				listRulmenti.remove(0);
+			}
+			else if(listRulmenti[0] - objAttacker.getAttack() > 0)
+			{
+				listRulmenti[0] = listRulmenti[0] - objAttacker.getAttack();
+			}
+			else if(listRulmenti[0] - objAttacker.getAttack() == 0)
+			{
+				listRulmenti.remove(0);
+			}
+		}
+	}
 }
